@@ -50,6 +50,8 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     "core",
     "productos",
+    "clientes",
+    "podologos",
 ]
 
 MIDDLEWARE = [
