@@ -15,12 +15,18 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import sys
+sys.path.append(str(BASE_DIR / "apps"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-6-1k$awylo4m-mmv5hrjnp$sc=#!7qdn52m6%zk@4ap5objrvt"
+# SECRET_KEY = "django-insecure-6-1k$awylo4m-mmv5hrjnp$sc=#!7qdn52m6%zk@4ap5objrvt" #
+
+from django.core.management.utils import get_random_secret_key
+
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +43,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+]
+
+# Apps Propias
+
+INSTALLED_APPS += [
+    "core",
+    "productos",
 ]
 
 MIDDLEWARE = [
